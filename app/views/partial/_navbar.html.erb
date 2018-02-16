@@ -4,6 +4,11 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
+  <!-- Location Search Form -->
+ <div class="navbar-form navbar-left form-group row-space-2">
+   <%= text_field_tag :search, params[:search], placeholder: "どちらまで?", class: "form-control",id:"pac-input" %>
+ </div>
+
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if !user_signed_in? %>
@@ -21,6 +26,11 @@
       <li><%= link_to('ログイン',  new_user_session_path) %></li>
       <% else %>
       <!-- ログインしている時 -->
+      <li>
+        <%= link_to conversations_path do %>
+          <i class="fa fa-envelope"></i> メッセージ
+        <% end %>
+      </li>
       <div class="dropdown">
         <button class="btn dropdown-toggle"  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <% if current_user.provider%>
@@ -28,7 +38,7 @@
           <%= image_tag current_user.image, class: 'img-circle profile-0' %>
           <%= current_user.name %>
           <% else %>
-          <%= current_user.email %>
+          <%= current_user.email.split("@")[0] %>
           <% end %>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -40,6 +50,15 @@
           </a>
           <a class="dropdown-item" href="">
             <%= link_to 'プロフィール編集', edit_user_registration_path %>
+          </a>
+          <a class="dropdown-item" href="">
+            <%= link_to 'リスティング管理', listings_path %>
+          </a>
+          <a class="dropdown-item" href="">
+            <%= link_to 'ゲストとしての予約一覧', reservations_path %>
+          </a>
+          <a class="dropdown-item" href="">
+            <%= link_to 'ホストとしての予約一覧',  reserved_path %>
           </a>
           <a class="dropdown-item" href="#">
             <%= link_to('ログアウト', destroy_user_session_path, {method: 'delete'}) %>

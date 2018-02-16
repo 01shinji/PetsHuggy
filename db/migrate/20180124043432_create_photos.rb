@@ -1,9 +1,9 @@
-class CreatePhotos < ActiveRecord::Migration[5.1]
+class CreatePhotos < ActiveRecord::Migration[4.2][5.1]
   def change
     create_table :photos do |t|
-      t.references :listing, foreign_key: true
+      t.references :listing, index: true, foreign_key: true
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

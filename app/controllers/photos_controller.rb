@@ -35,6 +35,6 @@ class PhotosController < ApplicationController
 
     private
     def photo_params
-        params.require(:photo).permit(:image,:listing_id)
+        params.require(:photo).permit(:listing_id, :image_file_name, :image_content_type, :image_file_size)
     end
 end

@@ -19,14 +19,22 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 gem 'bootstrap', '~> 4.0.0'
+
 gem 'jquery-rails'
 gem 'devise'
 gem 'toastr-rails'
 gem 'omniauth-facebook'
-gem "paperclip", "~> 5.0.0"
+gem "paperclip", "~> 5.2.1"
 gem 'dropzonejs-rails'
 gem "figaro", "~> 1.1.0"
 gem 'aws-sdk', '~> 2.3'
+gem 'geocoder'
+gem 'jquery-ui-rails'
+gem 'stripe'
+gem "rest-client"
+gem "private_pub"
+gem "thin"
+gem 'ransack'
 
 group :development, :test do
   gem 'sqlite3'
